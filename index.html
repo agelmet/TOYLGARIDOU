@@ -65,31 +65,9 @@
         ::-webkit-scrollbar-thumb { background: #3B4A3F; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B5A38C; }
 
-        /* Typography */
-        .text-gradient {
-            background: linear-gradient(135deg, #3B4A3F 0%, #5E6F60 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Hero Background Noise & Gradient */
-        .hero-bg {
-            background: linear-gradient(120deg, #F4F1EA 0%, #E2DFD8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-bg::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 1;
-        }
-
         /* Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -155,33 +133,20 @@
         /* Logo Effect */
         .logo-effect {
             transition: all 0.4s ease;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
         .logo-effect:hover {
-            transform: scale(1.05) translateY(-2px);
-            filter: drop-shadow(0 10px 15px rgba(181, 163, 140, 0.3));
+            opacity: 0.8;
         }
-
-        /* Form Inputs */
-        .custom-input {
-            width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
-            color: #fff; padding: 1rem 1.5rem; border-radius: 1rem; outline: none; transition: all 0.3s ease;
-        }
-        .custom-input::placeholder { color: rgba(255,255,255,0.5); }
-        .custom-input:focus { border-color: #B5A38C; background: rgba(255,255,255,0.15); box-shadow: 0 0 20px rgba(181, 163, 140, 0.2); }
     </style>
 </head>
 <body class="antialiased font-sans">
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 glass border-b-0">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-            <a href="#top" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-gold bg-brand-navy flex items-center justify-center logo-effect">
-                    <span class="font-serif text-brand-sand font-bold text-xl tracking-widest">ΚΤ</span>
-                </div>
-                <div class="hidden sm:block">
+            <a href="#top" class="flex items-center group logo-effect">
+                <div>
                     <h1 class="font-serif text-xl font-bold text-brand-navy tracking-wide">ΚΑΤΕΡΙΝΑ ΤΟΥΛΓΑΡΙΔΟΥ</h1>
-                    <p class="text-xs text-brand-gold font-medium tracking-widest uppercase">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+                    <p class="text-xs text-brand-gold font-medium tracking-widest uppercase mt-0.5">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
                 </div>
             </a>
 
@@ -210,39 +175,32 @@
 
     <main class="w-full overflow-hidden">
 
-        <header id="top" class="relative min-h-screen flex items-center pt-24 hero-bg">
-            <div class="absolute top-1/4 right-0 w-96 h-96 bg-brand-gold/20 rounded-full blur-3xl animate-float"></div>
-            <div class="absolute bottom-1/4 left-10 w-72 h-72 bg-brand-clay/40 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        <header id="top" class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://raw.githubusercontent.com/agelmet/TOYLGARIDOU/3d5a8c10f89a77abd01eb9146024de5e3202dcd4/%CE%A4%CE%BF%CF%85%CE%BB%CE%B3%CE%B1%CF%81%CE%AF%CE%B4%CE%BF%CF%85_%CE%9A%CE%B1%CF%84%CE%B5%CF%81%CE%AF%CE%BD%CE%B1_6.jpg');">
+            
+            <div class="absolute inset-0 bg-brand-navy/70 mix-blend-multiply z-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/50 via-transparent to-brand-navy/80 z-0"></div>
 
-            <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-2 gap-16 items-center z-10">
-                <div class="reveal-left active order-2 lg:order-1 pb-10 lg:pb-0">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 border border-white/40 backdrop-blur-sm mb-6 shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
-                        <span class="text-xs font-bold tracking-widest text-brand-navy uppercase">ΣΥΣΤΗΜΙΚΗ ΨΥΧΟΘΕΡΑΠΕΙΑ | ΑΜΠΕΛΟΚΗΠΟΙ</span>
-                    </div>
-                    <h1 class="text-4xl lg:text-5xl font-serif font-bold leading-tight text-brand-navy mb-6">
-                        Ανακαλύπτοντας τον Εαυτό <br> <span class="italic font-light text-brand-gold">μέσα από τις Σχέσεις</span>
-                    </h1>
-                    <p class="text-lg lg:text-xl text-brand-slate/80 leading-relaxed mb-10 max-w-xl font-light">
-                        Ένας ασφαλής, ζεστός χώρος όπου η θεραπευτική σχέση γίνεται το όχημα για εσωτερική ισορροπία, αυτογνωσία και ουσιαστική αλλαγή.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="btn-shine bg-brand-navy text-white px-8 py-4 rounded-full text-center font-semibold tracking-wide hover:bg-brand-slate transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
-                            ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#about" class="px-8 py-4 rounded-full text-center font-semibold text-brand-navy border border-brand-navy/20 hover:bg-brand-navy/5 transition-all flex items-center justify-center gap-2">
-                            ΓΝΩΡΙΣΤΕ ΜΕ
-                        </a>
-                    </div>
+            <div class="max-w-4xl mx-auto px-6 lg:px-12 w-full relative z-10 text-center reveal-left active mt-16">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest text-brand-sand uppercase">ΣΥΣΤΗΜΙΚΗ ΨΥΧΟΘΕΡΑΠΕΙΑ | ΑΜΠΕΛΟΚΗΠΟΙ</span>
                 </div>
                 
-                <div class="reveal-right active order-1 lg:order-2 relative flex justify-center lg:justify-end mt-10 lg:mt-0">
-                    <div class="relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl z-10 group border-8 border-white/40 cursor-pointer lightbox-trigger" data-src="https://raw.githubusercontent.com/agelmet/TOYLGARIDOU/3d5a8c10f89a77abd01eb9146024de5e3202dcd4/%CE%A4%CE%BF%CF%85%CE%BB%CE%B3%CE%B1%CF%81%CE%AF%CE%B4%CE%BF%CF%85_%CE%9A%CE%B1%CF%84%CE%B5%CF%81%CE%AF%CE%BD%CE%B1_6.jpg">
-                        <div class="absolute inset-0 bg-brand-navy/20 group-hover:bg-transparent transition-colors duration-700 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                            <i data-lucide="zoom-in" class="w-10 h-10 text-white drop-shadow-lg"></i>
-                        </div>
-                        <img src="https://raw.githubusercontent.com/agelmet/TOYLGARIDOU/3d5a8c10f89a77abd01eb9146024de5e3202dcd4/%CE%A4%CE%BF%CF%85%CE%BB%CE%B3%CE%B1%CF%81%CE%AF%CE%B4%CE%BF%CF%85_%CE%9A%CE%B1%CF%84%CE%B5%CF%81%CE%AF%CE%BD%CE%B1_6.jpg" alt="Χώρος Γραφείου" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
-                    </div>
+                <h1 class="text-5xl lg:text-7xl font-serif font-bold leading-tight text-white mb-8 drop-shadow-md">
+                    Ανακαλύπτοντας τον Εαυτό <br> <span class="italic font-light text-brand-gold">μέσα από τις Σχέσεις</span>
+                </h1>
+                
+                <p class="text-lg lg:text-xl text-brand-sand/90 leading-relaxed mb-12 max-w-2xl mx-auto font-light drop-shadow">
+                    Ένας ασφαλής, ζεστός χώρος όπου η θεραπευτική σχέση γίνεται το όχημα για εσωτερική ισορροπία, αυτογνωσία και ουσιαστική αλλαγή.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contact" class="btn-shine bg-brand-gold text-brand-navy px-10 py-4 rounded-full text-center font-bold tracking-wider hover:bg-white transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
+                        ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#about" class="px-10 py-4 rounded-full text-center font-bold text-white border border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all flex items-center justify-center gap-2 tracking-wider">
+                        ΓΝΩΡΙΣΤΕ ΜΕ
+                    </a>
                 </div>
             </div>
         </header>
@@ -306,7 +264,7 @@
                             <i data-lucide="user" class="w-7 h-7"></i>
                         </div>
                         <h4 class="text-2xl font-bold text-brand-navy mb-4 font-serif">Ατομική Ψυχοθεραπεία</h4>
-                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-justify">
+                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-left">
                             Η ατομική ψυχοθεραπεία είναι μια διαδικασία μέσα από την οποία το άτομο έχει την ευκαιρία να μιλήσει για θέματα που το απασχολούν, σε ένα ασφαλές και υποστηρικτικό πλαίσιο. Με τη βοήθεια της θεραπεύτριας διερευνά σκέψεις, συναισθήματα, εντοπίζοντας τόσο τις δυσκολίες του όσο και τις εσωτερικές του δυνάμεις. Μέσα από τη θεραπεία το άτομο μπορεί να κατανοήσει βαθύτερα τον εαυτό του, τους τρόπους με τους οποίους σχετίζεται με τους άλλους και να αναζητήσει νέους τρόπους αντιμετώπισης των προκλήσεων της ζωής. 
                         </p>
                         <div class="mt-6 pt-4 border-t border-brand-clay/40">
@@ -321,7 +279,7 @@
                             <i data-lucide="users" class="w-7 h-7"></i>
                         </div>
                         <h4 class="text-2xl font-bold text-brand-navy mb-4 font-serif">Ομαδική Ψυχοθεραπεία</h4>
-                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-justify">
+                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-left">
                             Η ψυχοθεραπευτική ομάδα λειτουργεί ως μια μικρογραφία της καθημερινής ζωής. Ο τρόπος με τον οποίο σχετιζόμαστε μέσα στην ομάδα συχνά αντικατοπτρίζει τον τρόπο με τον οποίο σχετιζόμαστε στην ζωή μας. Αυτό δίνει τη δυνατότητα στα μέλη να κατανοήσουν καλύτερα τον εαυτό τους, να δοκιμάσουν νέους τρόπους επικοινωνίας και να επεξεργαστούν δυσκολίες που αφορούν τις διαπροσωπικές τους σχέσεις μέσα σε ένα ασφαλές πλαίσιο. Η ομάδα λειτουργεί με συγκεκριμένους κανόνες που διασφαλίζουν την εμπιστευτικότητα. Η ένταξη γίνεται κατόπιν συμφωνίας αφού προηγηθεί διάστημα ατομικής θεραπείας.
                         </p>
                         <div class="mt-6 pt-4 border-t border-brand-clay/40">
@@ -336,7 +294,7 @@
                             <i data-lucide="compass" class="w-7 h-7"></i>
                         </div>
                         <h4 class="text-2xl font-bold text-brand-navy mb-4 font-serif">Συμβουλευτική</h4>
-                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-justify">
+                        <p class="text-brand-slate/80 text-sm leading-relaxed flex-grow text-left">
                             Η συμβουλευτική είναι μια διαδικασία υποστήριξης που απευθύνεται σε άτομα τα οποία αντιμετωπίζουν μια συγκεκριμένη δυσκολία ή βρίσκονται σε μια περίοδο αλλαγής και αναζητούν καθοδήγηση και ενίσχυση. Οι συναντήσεις προσανατολίζονται στην κατανόηση της παρούσας κατάστασης και στην αναζήτηση τρόπων διαχείρισης και αντιμετώπισής της. Η συμβουλευτική δεν ορίζεται ως ψυχοθεραπεία και συνήθως έχει περιορισμένη διάρκεια. Δεν ενδείκνυται για άτομα με σοβαρές ψυχικές διαταραχές ή σε έντονη κρίση (σε αυτές τις περιπτώσεις ζητείται άμεσα ψυχιατρική/ψυχοθεραπευτική βοήθεια).
                         </p>
                         <div class="mt-6 pt-4 border-t border-brand-clay/40">
@@ -355,10 +313,10 @@
                 <div class="w-16 h-16 bg-brand-sand rounded-full flex items-center justify-center mx-auto mb-6 text-brand-gold">
                     <i data-lucide="coffee" class="w-8 h-8"></i>
                 </div>
-                <h3 class="text-3xl lg:text-4xl font-serif font-bold text-brand-navy mb-6">Τι να περιμένω στην πρώτη συνάντηση;</h3>
-                <div class="p-8 rounded-3xl border border-brand-clay border-dashed bg-brand-sand/50">
-                    <p class="text-brand-slate/60 text-lg italic">
-                        (Το αναλυτικό κείμενο για την πρώτη μας συνάντηση θα προστεθεί σύντομα).
+                <h3 class="text-3xl lg:text-4xl font-serif font-bold text-brand-navy mb-8">Τι να περιμένω στην πρώτη συνάντηση;</h3>
+                <div class="p-8 lg:p-10 rounded-3xl bg-brand-sand/30 border border-brand-clay/40 shadow-sm">
+                    <p class="text-brand-slate/80 text-lg leading-relaxed text-left md:text-center">
+                        Στην πρώτη συνάντηση θα έχουμε την ευκαιρία να γνωριστούμε και να συζητήσουμε τι σας έφερε στη θεραπεία και ποιες είναι οι ανάγκες ή οι δυσκολίες που αντιμετωπίζετε. Θα σας εξηγήσω τον τρόπο που εργάζομαι, ενώ παράλληλα θα υπάρχει χώρος για να κάνετε ερωτήσεις και να εκφράσετε ό,τι σας απασχολεί. Στόχος είναι να δημιουργηθεί ένα ασφαλές και υποστηρικτικό πλαίσιο για τη συνεργασία μας.
                     </p>
                 </div>
             </div>
@@ -396,7 +354,7 @@
                 <div class="reveal-left">
                     <h2 class="text-xs font-bold text-brand-gold tracking-[0.2em] uppercase mb-4">ΕΠΙΚΟΙΝΩΝΙΑ</h2>
                     <h3 class="text-4xl lg:text-5xl font-serif font-bold mb-8 text-brand-sand">Κάντε το Πρώτο Βήμα</h3>
-                    <p class="text-brand-clay/70 text-lg mb-12 font-light max-w-md">
+                    <p class="text-brand-clay/80 text-lg mb-12 font-light max-w-md">
                         Είμαι εδώ για να ακούσω και να υποστηρίξω. Επικοινωνήστε μαζί μου για να προγραμματίσουμε την πρώτη μας συνάντηση.
                     </p>
 
@@ -444,29 +402,21 @@
                 </div>
 
                 <div class="reveal-right flex items-center justify-center lg:justify-end">
-                    <div class="glass-dark p-8 lg:p-10 rounded-[2.5rem] w-full shadow-2xl relative overflow-hidden group border border-white/10">
+                    <div class="glass-dark p-8 lg:p-12 rounded-[2.5rem] w-full shadow-2xl relative overflow-hidden group border border-white/10 text-center flex flex-col items-center justify-center">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
                         
-                        <h4 class="text-2xl font-serif font-bold mb-2 text-brand-sand">Στείλτε Μήνυμα</h4>
-                        <p class="text-brand-clay/60 text-sm mb-8">Συμπληρώστε τη φόρμα και θα επικοινωνήσω μαζί σας το συντομότερο δυνατό.</p>
+                        <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="send" class="w-8 h-8 ml-1"></i>
+                        </div>
                         
-                        <form action="mailto:kat.toulgaridou@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
-                            <div>
-                                <input type="text" name="Ονοματεπώνυμο" placeholder="Ονοματεπώνυμο" required class="custom-input">
-                            </div>
-                            <div>
-                                <input type="email" name="Email" placeholder="Email (Προαιρετικά)" class="custom-input">
-                            </div>
-                            <div>
-                                <input type="tel" name="Τηλέφωνο" placeholder="Τηλέφωνο Επικοινωνίας" required class="custom-input">
-                            </div>
-                            <div>
-                                <textarea name="Μήνυμα" rows="4" placeholder="Πώς μπορώ να σας βοηθήσω;" required class="custom-input resize-none"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-brand-gold text-brand-navy font-bold py-4 px-6 rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg transform hover:-translate-y-1 mt-4">
-                                ΑΠΟΣΤΟΛΗ ΜΗΝΥΜΑΤΟΣ
-                            </button>
-                        </form>
+                        <h4 class="text-2xl font-serif font-bold mb-4 text-brand-sand">Επικοινωνία μέσω Email</h4>
+                        <p class="text-brand-clay/70 text-sm mb-10 leading-relaxed max-w-xs mx-auto">
+                            Στείλτε μου το μήνυμά σας και θα σας απαντήσω το συντομότερο δυνατό για να προγραμματίσουμε τη συνάντησή μας.
+                        </p>
+                        
+                        <a href="mailto:kat.toulgaridou@gmail.com" class="w-full block bg-brand-gold text-brand-navy font-bold py-4 px-6 rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg transform hover:-translate-y-1 text-sm md:text-base">
+                            ΣΤΕΙΛΤΕ ΜΟΥ EMAIL
+                        </a>
                     </div>
                 </div>
 
